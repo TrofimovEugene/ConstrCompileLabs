@@ -3,9 +3,10 @@ using System.Collections.Generic;
 
 namespace Lab2_2
 {
-    public class Program
+    public static class Program
     {
-        public static string State;
+        private static string State { get; set; }
+
         public static void Main(string[] args)
         {
             var s = "0000011111";
@@ -13,28 +14,64 @@ namespace Lab2_2
             State = "N";
             try
             {
-                foreach (var ch in s)
+                for (var i = 0; i < s.Length; i++)
                 {
-                    switch (ch)
+                    switch (s[i])
                     {
                         case '0':
-                            stack.Push(ch);
-                            State = "0";
+                            if (i > 0)
+                            {    if (s[i - 1] == s[i])
+                                {
+                                    stack.Push(s[i]);
+                                    State = "0";
+                                }
+                                else
+                                {
+                                    throw new InvalidOperationException();
+                                }
+                            }
+                            else
+                            {
+                                stack.Push(s[i]);
+                                State = "0";
+                            }
                             break;
                         case '1':
-                            stack.Pop();
-                            State = "1";
+                            if (i < s.Length - 1)
+                            {
+                                if (s[i] == s[i + 1])
+                                {
+                                    stack.Pop();
+                                    State = "1";
+                                }
+                                else
+                                {
+                                    throw new InvalidOperationException();
+                                }
+                            }
+                            else
+                            {
+                                stack.Pop();
+                                State = "1";
+                            }
+
                             break;
                     }
                 }
+
+                State = "E";
             }
             catch (InvalidOperationException e)
             {
-                // ignore
+                Console.WriteLine("Цепочка не распознана.");
+                return;
             }
             
             if (stack.TryPop(out  _))
-                Console.WriteLine("Цепочка не распознана. Нулей больше чем единиц");
+                Console.WriteLine("Цепочка не распознана.");
+            else
+                if (State == "E")
+                    Console.WriteLine("Цепочка распознана.");
         }
     }
 }
