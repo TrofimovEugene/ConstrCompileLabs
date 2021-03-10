@@ -9,7 +9,7 @@ namespace Lab2_2
 
         public static void Main(string[] args)
         {
-            var s = "0000011111";
+            const string s = "0000011111";
             var stack = new Stack<char>();
             State = "N";
             try
@@ -61,7 +61,7 @@ namespace Lab2_2
 
                 State = "E";
             }
-            catch (InvalidOperationException e)
+            catch (InvalidOperationException)
             {
                 Console.WriteLine("Цепочка не распознана.");
                 return;
