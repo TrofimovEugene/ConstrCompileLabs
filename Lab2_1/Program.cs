@@ -20,7 +20,8 @@ namespace Lab2_1
                 {"5", "1", "5", "6"}
             };*/
 
-            var s = "ABABAC";
+            var s = "ABABABC";
+            Console.WriteLine($"Начальная цепочка: {s}");
             var reg_ex = new Regex(@"[A-Z]");
             var matches_a = reg_ex.Matches(s);
             State = 0;
@@ -135,8 +136,8 @@ namespace Lab2_1
                         continue;
                 }
             }
-            
-            Console.WriteLine(State);
+
+            Console.WriteLine(State == 6 ? "Цепочка распознана" : "Цепочка не распознана");
         }
     }
 }
