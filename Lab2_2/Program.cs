@@ -9,7 +9,8 @@ namespace Lab2_2
 
         public static void Main(string[] args)
         {
-            const string s = "0000011111";
+            const string s = "01010101";
+            Console.WriteLine($"Начальная цепочка: {s}");
             var stack = new Stack<char>();
             State = "N";
             try

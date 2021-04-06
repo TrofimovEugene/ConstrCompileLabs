@@ -8,6 +8,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lab3", "Lab3", "{53FF4BB4-A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab3_3", "Lab3_3\Lab3_3.csproj", "{C86EFF31-9D1A-4714-9A48-B1C7E03E45AB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{60C6B105-C3CC-4F5C-A1E8-0F271593594B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LR_parser", "LR_parser\LR_parser.csproj", "{0EC90DD5-A96F-40D4-A35F-7A564F4F62C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,8 +30,13 @@ Global
 		{C86EFF31-9D1A-4714-9A48-B1C7E03E45AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C86EFF31-9D1A-4714-9A48-B1C7E03E45AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C86EFF31-9D1A-4714-9A48-B1C7E03E45AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EC90DD5-A96F-40D4-A35F-7A564F4F62C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EC90DD5-A96F-40D4-A35F-7A564F4F62C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EC90DD5-A96F-40D4-A35F-7A564F4F62C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EC90DD5-A96F-40D4-A35F-7A564F4F62C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C86EFF31-9D1A-4714-9A48-B1C7E03E45AB} = {53FF4BB4-AB36-40B8-80D8-26888534103A}
+		{0EC90DD5-A96F-40D4-A35F-7A564F4F62C8} = {60C6B105-C3CC-4F5C-A1E8-0F271593594B}
 	EndGlobalSection
 EndGlobal
