@@ -5,7 +5,7 @@ namespace Lab4
 {
     public class Program
     {
-        private const string Str = "a+a*(a-a)#";
+        private const string Str = "a+a*(a-a)+a#";
         private static int _index = 0;
         public static void Main(string[] args)
         {
@@ -21,27 +21,24 @@ namespace Lab4
                 {
                     stack.Pop();
                     _index++;
-                    Console.WriteLine("sda");
+                    ip = Str[_index];
+                    Console.WriteLine($"удаляем {a}");
                 }
-                else 
-                    if (X.IsTerminal())
-                    {
-                        Console.WriteLine("Error");
-                        break;
-                    }
-                    else
-                    {
-                        DoingRule(stack, CheckRuleInTable(X, a));
-                    }
-
-                
-                if (!stack.TryPeek(out X))
+                else if (X.IsTerminal())
                 {
-                    Console.WriteLine("stack");
+                    Console.WriteLine("Error terminal");
                     break;
                 }
-            }
+                else if (CheckRuleInTable(X, a) == 0)
+                {
+                    Console.WriteLine($"Error rule. {X} {a}");
+                    break;
+                }
+                else
+                    DoingRule(stack, CheckRuleInTable(X, a));
 
+                X = stack.Peek();
+            }
         }
 
         private static int CheckRuleInTable(char X, char a)
@@ -75,6 +72,7 @@ namespace Lab4
                     '-' => 8,
                     '*' => 6,
                     '/' => 7,
+                    '#' => 8,
                     _ => 0
                 },
                 'F' => a switch
@@ -126,52 +124,72 @@ namespace Lab4
 
         private static void R1(Stack<char> stack)
         {
-            
+            Console.WriteLine($"{stack.Pop()} -> TS");
+            stack.Push('S');
+            stack.Push('T');
         }
         
         private static void R2(Stack<char> stack)
         {
-            
+            Console.WriteLine($"{stack.Pop()} -> +TS");
+            stack.Push('S');
+            stack.Push('T');
+            stack.Push('+');
         }
         
         private static void R3(Stack<char> stack)
         {
-            
+            Console.WriteLine($"{stack.Pop()} -> -TS");
+            stack.Push('S');
+            stack.Push('T');
+            stack.Push('-');
         }
         
         private static void R4(Stack<char> stack)
         {
-            
+            Console.WriteLine($"{stack.Pop()} -> #");
         }
         
         private static void R5(Stack<char> stack)
         {
-            
+            Console.WriteLine($"{stack.Pop()} -> FR");
+            stack.Push('R');
+            stack.Push('F');
         }
         
         private static void R6(Stack<char> stack)
         {
-            
+            Console.WriteLine($"{stack.Pop()} -> *FR");
+            stack.Push('R');
+            stack.Push('F');
+            stack.Push('*');
         }
         
         private static void R7(Stack<char> stack)
         {
-            
+            Console.WriteLine($"{stack.Pop()} -> /FR");
+            stack.Push('R');
+            stack.Push('F');
+            stack.Push('/');
         }
         
         private static void R8(Stack<char> stack)
         {
-            
+            Console.WriteLine($"{stack.Pop()} -> #");
         }
         
         private static void R9(Stack<char> stack)
         {
-            
+            Console.WriteLine($"{stack.Pop()} -> (E)");
+            stack.Push(')');
+            stack.Push('E');
+            stack.Push('(');
         }
         
         private static void R10(Stack<char> stack)
         {
-            
+            Console.WriteLine($"{stack.Pop()} -> a");
+            stack.Push('a');
         }
     }
 }
